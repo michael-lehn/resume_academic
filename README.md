@@ -5,6 +5,9 @@ university positions (e.g., Lecturer):
 
 - 📄 **[Academic CV](cv.pdf)**
 - 📄 **[Teaching Statement](teaching_statement.pdf)**
+- 📄 **[Evidence of Teaching Effectiveness](teaching_effectiveness_public.pdf)**
+  (summary of official student evaluation results; individual student
+  comments are not reproduced)
 
 ## Building
 
@@ -15,6 +18,9 @@ for example:
 lualatex cv.tex
 lualatex cv.tex
 ```
+
+`teaching_effectiveness_public.tex` uses a table that spans pages and needs
+a third LuaLaTeX run.
 
 The documents use Calibri if it is installed and otherwise the
 metric-compatible Carlito font (included in TeX Live).

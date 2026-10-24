@@ -1,0 +1,189 @@
+% teaching_effectiveness_public.tex – Evidence of Teaching Effectiveness (public version)
+% Public version: no verbatim student comments; free-text feedback is summarized.
+% Compile with: lualatex teaching_effectiveness.tex
+%
+% All figures are taken from the official course evaluation reports of
+% Ulm University (Servicestelle Lehrevaluation, EvaSys). The reports
+% themselves are confidential and are not part of this repository.
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,top=40pt,bottom=40pt,left=45pt,right=45pt]{geometry}
+\usepackage{fontspec}
+\usepackage[HTML]{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+
+\IfFontExistsTF{Calibri}
+  {\setmainfont{Calibri}[Ligatures={CommonOff,TeXOff}]}
+  {\setmainfont{Carlito}[Ligatures={CommonOff,TeXOff}]}
+
+\definecolor{heading}{HTML}{365F91}
+\definecolor{rule}{HTML}{444444}
+\definecolor{tagline}{HTML}{333333}
+\hypersetup{colorlinks=true, urlcolor=heading, linkcolor=heading}
+
+% ---------------------------------------------------------------------------
+% Font sizes (as in cv.tex)
+\newcommand{\namesize}{\fontsize{16pt}{19.5pt}\selectfont}
+\newcommand{\headsize}{\fontsize{10.5pt}{12.8pt}\selectfont}
+\newcommand{\bodysize}{\fontsize{10pt}{12.2pt}\selectfont}
+\newcommand{\smallsize}{\fontsize{9.5pt}{11.6pt}\selectfont}
+\newcommand{\tablesize}{\fontsize{9pt}{11pt}\selectfont}
+
+% Section heading: as in cv.tex
+\newcommand{\cvsection}[1]{%
+  \par\vspace{9pt}%
+  {\headsize\bfseries\color{heading}\strut#1\par}%
+  \nopagebreak\vspace{1pt}%
+  {\color{rule}\hrule height 0.75pt}%
+  \nopagebreak\vspace{3pt}%
+  \prevdepth=2.7pt\relax
+}
+
+% Paragraph with small space after
+\newcommand{\para}[1]{{#1\par}\vspace{3pt}}
+
+% Bullet list
+\newenvironment{cvitems}
+  {\begin{itemize}[label=•, leftmargin=15pt, labelwidth=10pt, labelsep=0pt,
+                   align=left, topsep=0pt, partopsep=0pt, parsep=0pt,
+                   itemsep=2pt, beginpenalty=10000]}
+  {\end{itemize}\vspace{3pt}}
+
+
+% Group row in the evaluation table
+\newcommand{\group}[1]{\multicolumn{5}{@{}l}{\bfseries\color{heading}#1}\\*[1pt]}% no page break after a group heading
+
+% ---------------------------------------------------------------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+\bodysize
+\raggedright
+\hyphenpenalty=10000
+\frenchspacing
+\clubpenalty=10000
+\widowpenalty=10000
+\makeatletter
+\@clubpenalty=\clubpenalty
+\makeatother
+
+{\centering
+  {\namesize\bfseries\color{heading}\strut Evidence of Teaching Effectiveness\par}\vspace{2pt}
+  {\headsize\color{tagline}Michael Lehn, Ph.D. · Senior Lecturer, Institute of Numerical Mathematics, Ulm University\par}\vspace{3pt}
+}
+
+% ===========================================================================
+\cvsection{OVERVIEW}
+
+\para{Since 2008 I have taught mathematics service courses for science and engineering students, courses in numerical mathematics, and computing courses at Ulm University. This document summarizes 30 official student evaluation reports of my teaching from 2008 to 2026 (11 courses, 1,162 completed questionnaires), and two further reports on HPC1, a course I designed and lead, that were addressed to a co-instructor (34 questionnaires). The reports were produced by the university's central course evaluation service (Servicestelle Lehrevaluation) using EvaSys. All figures below are taken directly from these reports.}
+
+\para{\textbf{Rating scale.} Questionnaire items are statements rated on a six-point scale from 1 (“does not apply at all”) to 6 (“fully applies”); \textbf{higher values are better}. This is the reverse of German school grades, where 1 is best.}
+
+\para{\textbf{Overall rating.} The questionnaire was revised several times, and most summary categories were redefined. For comparability, the overall rating used here is the mean response to one item present in every version: “Alles in allem ist die Vorlesung/Veranstaltung sehr gut” (until Winter 2022/23) or “Insgesamt betrachtet ist diese Veranstaltung sehr gut” (from Summer 2023), both meaning “Overall, this course is very good.”}
+
+\para{\textbf{Attribution in HPC1.} I designed and lead HPC1 and delegated part of its teaching to a co-instructor. Course-level items (overall course rating, organization, materials, workload, learning gains) describe the course, whoever the report is addressed to. Instructor-specific ratings in the two reports addressed to the co-instructor are not reported here, and comments about the co-instructor's teaching are not attributed to me. No report addressed to me is available for Winter 2020/21 or Winter 2023/24.}
+
+% ===========================================================================
+\cvsection{COURSE EVALUATIONS}
+
+{\tablesize
+\setlength{\LTleft}{0pt}\setlength{\LTpre}{0pt}\setlength{\LTpost}{0pt}
+\begin{longtable}{@{}p{0.12\textwidth}p{0.47\textwidth}rrr@{}}
+\toprule
+\textbf{Term} & \textbf{Course} & \textbf{Questionnaires} & \textbf{Overall rating (n)} & \textbf{Comparison} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Term} & \textbf{Course (continued)} & \textbf{Questionnaires} & \textbf{Overall rating (n)} & \textbf{Comparison} \\
+\midrule
+\endhead
+\group{Mathematics service courses (lecture-based)}
+Summer 2008     & Numerical Methods for Computer Science, Electrical Engineering, and Natural Sciences & 37  & 4.9 (36)  & – \\
+Winter 2008/09  & Higher Mathematics I for Physicists and Engineers  & 106 & 5.2 (104) & – \\
+Summer 2009     & Higher Mathematics II for Physicists               & 44  & 5.3 (44)  & – \\
+Winter 2010/11  & Higher Mathematics I for Physicists                & 37  & 5.7 (37)  & – \\
+Summer 2012     & Mathematical Foundations of Economics II           & 126 & 3.7 (115) & – \\
+Winter 2012/13  & Higher Mathematics I for Physicists                & 87  & 4.6 (85)  & – \\
+Summer 2013     & Higher Mathematics II for Physicists               & 80  & 5.0 (78)  & – \\
+Winter 2013/14  & Higher Mathematics III for Physicists              & 68  & 4.9 (67)  & – \\
+Winter 2014/15  & Higher Mathematics I for Physicists                & 85  & 5.1 (84)  & – \\
+Summer 2015     & Higher Mathematics II for Physicists               & 73  & 5.2 (71)  & – \\
+Summer 2016     & Mathematical Foundations of Economics II           & 104 & 4.3 (98)  & – \\
+Summer 2017     & Higher Mathematics 2 for Physicists, Engineers, and CSE & 66 & 4.9 (66) & 4.8 \\
+Winter 2017/18  & Higher Mathematics 3 for Physicists, Engineers, and CSE & 61 & 5.2 (60) & – \\
+Winter 2022/23  & Higher Mathematics 1                               & 18  & 4.7 (17)  & 4.8 \\
+Summer 2023     & Higher Mathematics II                              & 14  & 5.4 (14)  & 4.7 \\
+Winter 2023/24  & Higher Mathematics 3 – Complex Analysis           & 12  & 5.2 (12)  & 4.9 \\[2pt]
+\group{Numerical mathematics (lecture-based)}
+Winter 2024/25  & Numerical Linear Algebra                           & 12  & 5.8 (12)  & 4.8 \\
+Summer 2026     & Numerical Methods for Ordinary Differential Equations & 6 & 5.7 (6)   & 4.8 \\[2pt]
+\group{Computing and high-performance computing}
+Summer 2014     & Software Foundations of HPC (lecture with supervised lab)   & 9  & 5.7 (9)  & – \\
+Winter 2014/15  & Software Foundations of HPC (lecture with supervised lab)   & 9  & 5.8 (9)  & – \\
+Summer 2015     & Software Foundations of HPC (lecture with supervised lab)   & 10 & 5.9 (9)  & – \\
+Summer 2017     & Software Foundations of HPC (lecture with supervised lab)   & 12 & 5.4 (12) & 4.8 \\
+Summer 2020     & HPC0 – Introduction to HPC (online semester)               & 17 & 5.8 (17) & – \\
+Summer 2022     & HPC0 – Introduction to HPC (flipped classroom)             & 13 & 4.2 (13) & 5.0 \\
+Summer 2024     & HPC0 – Introduction to HPC (flipped classroom)             & 11 & 5.6 (11) & 4.8 \\
+Summer 2025     & HPC0 – Introduction to HPC (flipped classroom)             & 13 & 5.6 (11) & 4.8 \\
+Summer 2026     & HPC0 – Introduction to HPC (flipped classroom)             & 6  & 5.8 (6)  & 4.8 \\
+Winter 2024/25  & HPC1 – High Performance Computing 1 (project-based)        & 6  & 5.2 (6)  & 4.8 \\
+Winter 2025/26  & HPC1 – High Performance Computing 1 (project-based)        & 14 & 4.9 (14) & – \\
+Summer 2026     & Application-Oriented Software Development (project-based lab) & 6 & 5.8 (6) & – \\[2pt]
+\group{HPC1 reports addressed to the co-instructor (course-level evidence only)}
+Winter 2020/21  & HPC1 – High Performance Computing 1 (co-taught)            & 22 & 5.2 (22) & 4.8 \\*
+Winter 2023/24  & HPC1 – High Performance Computing 1 (co-taught)            & 12 & 5.1 (12) & 4.9 \\
+\bottomrule
+\end{longtable}
+
+\vspace{3pt}
+{\smallsize \textbf{Notes to the table.} Questionnaires: completed questionnaires per report. n: responses to the overall item. Comparison: mean of the overall item across the evaluated Mathematics lectures of preceding semesters, as defined in each report (not available for most older reports, the engineering course, and Winter 2025/26). “Software Foundations of HPC” (Softwaregrundlagen für High Performance Computing) was the predecessor of HPC0 and HPC1. The last two rows are not included in the statistics for my own teaching. Summer 2020: the term is inferred from the report date (14 July 2020) and a course website address referenced in the original evaluation report; the report's cover letter is not machine-readable.\par}
+}
+
+% ===========================================================================
+\cvsection{QUANTITATIVE SUMMARY}
+
+\begin{cvitems}
+  \item \textbf{My own teaching (30 reports).} The overall rating has a median of 5.2 (range 3.7–5.9); 21 of 30 reports are at 5.0 or above. These statistics treat each report equally and use the rounded means printed in the reports.
+  \item Weighted by the number of responses to the overall item, the mean is 4.91. It is lower than the median because the largest courses, service courses with 60–115 responses, were rated lower than the smaller specialized courses.
+  \item Of the 12 reports with a comparison value, 10 are above the Mathematics-lecture mean (4.9–5.8 versus 4.7–4.9). Two are below: HPC0 in Summer 2022 (4.2 versus 5.0) and Higher Mathematics 1 in Winter 2022/23 (4.7 versus 4.8).
+  \item \textbf{HPC1 at course level (4 reports).} Including the two reports addressed to the co-instructor, the course-level overall rating of HPC1 was 5.2, 5.1, 5.2, and 4.9 (Winter 2020/21 to 2025/26), above the comparison value in all three terms that have one.
+\end{cvitems}
+
+% ===========================================================================
+\cvsection{SUMMARY OF STUDENT COMMENTS}
+
+\para{{\smallsize This section summarizes the typed free-text comments in the reports; individual comments are not reproduced. Comments in the paper-based reports (2008 to Winter 2017/18, mainly the large service courses) are handwritten scans and were not analyzed.}}
+
+\begin{cvitems}
+  \item \textbf{Mathematics lectures.} Students most often mention a clear structure, explanations that start from simple examples and generalize them, connections to other areas of mathematics and to applications, and availability for questions.
+  \item \textbf{HPC0.} Comments repeatedly name the flipped-classroom format, the videos and worksheets, the step-by-step progression from logic gates to a compiler, and individual support in class as strengths.
+  \item \textbf{HPC1.} Comments value the supervised lab sessions, the large amount of concrete programming, and the overall design of the course, including comments in a report addressed to the co-instructor.
+  \item \textbf{Application-Oriented Software Development.} Comments emphasize hands-on, experimental learning, working on the tasks in pairs, and the combination of learning and enjoyment.
+\end{cvitems}
+
+% ===========================================================================
+\cvsection{TEACHING APPROACHES AND WHAT THE EVALUATIONS SHOW}
+
+\begin{cvitems}
+  \item \textbf{Lecture-based mathematics} (18 reports, overall 3.7–5.8). Positive comments mention clear structure, explanation through examples, and availability for questions. Frequent requests are written lecture notes, solutions to exercise sheets and past exams, and a slower pace. The two ratings below 4.5 in this group come from Mathematical Foundations of Economics II (3.7 and 4.3), a large service course for economics students.
+  \item \textbf{Flipped classroom (HPC0).} Students prepare with lecture videos; class time is spent on worksheets, programming, and individual guidance. The earliest HPC0 report, from the online semester of Summer 2020, gave 5.8 (17 responses). After 4.2 in Summer 2022, the three subsequent offerings were rated 5.6, 5.6, and 5.8, and several comments name the format itself as a strength. In Summer 2022 the dominant criticism was workload relative to the credit points.
+  \item \textbf{Project-based learning (HPC1, Application-Oriented Software Development).} Students build their own software step by step. In the co-taught HPC1 terms covered by the reports, lectures alternated between me and the co-instructor. Across all four HPC1 reports, comments value the lab sessions and the concrete programming. Recurring criticisms are workload (“workload compatible with available study time”: 3.6 and 4.0 in Winter 2023/24 and 2024/25; workload relative to credits: 2.5 on a scale from 1 = “far too high” to 6 = “far too low” in Winter 2025/26), the fast transition from C to C++, and, in the co-taught terms, missing lecture notes for my lectures and limited coherence between the two instructors' lectures. The project-based lab was rated 5.8 (6 responses).
+\end{cvitems}
+
+% ===========================================================================
+\cvsection{CRITICISMS AND LIMITATIONS}
+
+\begin{cvitems}
+  \item \textbf{Recurring critical comments.} Across courses, students ask for complete written lecture notes; in the lecture courses they also ask for solutions to exercise sheets and past exams and for a slower pace. In HPC0 (Summer 2022) and HPC1, the dominant criticism is workload relative to the credit points, together with the frequency of quizzes and, in HPC1, open-ended task descriptions and gaps in C/C++ prerequisites. In the co-taught HPC1 terms, students also asked for lecture notes for my lectures and noted limited coherence between the two instructors' lectures.
+  \item \textbf{Clarity in large lectures.} In the Higher Mathematics reports from Winter 2010/11 to Summer 2017, “clarity of presentation” (Klarheit der Stoffvermittlung) was the lowest of the summary indices (3.4–4.6).
+  \item \textbf{Coverage.} I have consistently requested student evaluations of my courses. However, voluntary participation and minimum response requirements mean that evaluation reports are not available for every course offering, particularly in smaller graduate electives. The reports presented here therefore document the available evaluation results rather than my complete teaching history.
+  \item \textbf{Limitations of the data.} Enrollment figures and response rates are not reported. Courses since 2022 had 6–18 respondents, so individual responses strongly affect the means.
+\end{cvitems}
+
+\end{document}
