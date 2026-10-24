@@ -1,0 +1,21 @@
+# LuaLaTeX auxiliary and temporary build files
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.xdv
+*.bbl
+*.blg
+
+# Word sources and other application materials are kept private
+*.docx
+*.doc
+
+# OS and editor files
+.DS_Store
+*~
+*.swp

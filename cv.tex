@@ -1,0 +1,267 @@
+% cv.tex -- LaTeX conversion of Michael_Lehn_CV_Lecturer.docx
+% Compile with: lualatex cv.tex
+%
+% Layout values are taken from the Word document (1pt = 20 twips):
+%   US Letter, margins 40pt (top/bottom) and 45pt (left/right), font Calibri.
+%   Word's "single" line spacing for Calibri is 1.22 x font size.
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,top=40pt,bottom=40pt,left=45pt,right=45pt]{geometry}
+\usepackage{fontspec}
+\usepackage[HTML]{xcolor}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage{hyperref}
+
+% Calibri if installed, otherwise its metric-compatible clone Carlito.
+% No ligatures, and no TeX input mapping (keeps straight quotes as typed).
+\IfFontExistsTF{Calibri}
+  {\setmainfont{Calibri}[Ligatures={CommonOff,TeXOff}]}
+  {\setmainfont{Carlito}[Ligatures={CommonOff,TeXOff}]}
+
+\definecolor{heading}{HTML}{365F91}  % muted dark blue accent (section headings)
+\definecolor{rule}{HTML}{444444}
+\definecolor{tagline}{HTML}{333333}
+
+% Links: accent-colored text, no boxes or underlines
+\hypersetup{colorlinks=true, urlcolor=heading, linkcolor=heading}
+
+% ---------------------------------------------------------------------------
+% Font sizes used in the Word document (with single line spacing)
+\newcommand{\namesize}{\fontsize{16pt}{19.5pt}\selectfont}    % 16pt
+\newcommand{\headsize}{\fontsize{10.5pt}{12.8pt}\selectfont}  % 10.5pt
+\newcommand{\bodysize}{\fontsize{10pt}{12.2pt}\selectfont}    % 10pt
+\newcommand{\smallsize}{\fontsize{9.5pt}{11.6pt}\selectfont}  % 9.5pt
+
+% Word line spacing "multiple 1.04" (line=250) used for text and bullets
+\newcommand{\looser}{\linespread{1.0417}\selectfont}
+
+% ---------------------------------------------------------------------------
+% Section heading: bold caps with a 0.75pt rule 2pt below the text line
+\newcommand{\cvsection}[1]{%
+  \par\vspace{9pt}%
+  {\headsize\bfseries\color{heading}\strut#1\par}%
+  \nopagebreak\vspace{1pt}%
+  {\color{rule}\hrule height 0.75pt}%
+  \nopagebreak\vspace{3pt}%
+  \prevdepth=2.7pt\relax % next line is placed as if below a text line
+}
+
+% Dated entry: bold title, right-aligned small date/info
+% (filll so that it beats the fil glue of \raggedright)
+% Optional argument: number of lines to keep together on one page
+\newcommand{\cventry}[3][0]{%
+  \par\vspace{4.5pt}%
+  \ifnum#1>0 \needspace{#1\baselineskip}\fi
+  {\bfseries #2}\hspace{0pt plus 1filll}{\smallsize #3}\par
+  \nopagebreak\vspace{1pt}%
+}
+
+% Italic line below an entry (role, dissertation, ...)
+\newcommand{\cvsubtitle}[1]{%
+  {\smallsize\itshape #1\par}%
+  \nopagebreak\vspace{1.5pt}%
+}
+
+% Small bold run-in label, e.g. "Curriculum development:"
+\newcommand{\cvlabel}[1]{%
+  \par\vspace{3pt}%
+  {\smallsize\bfseries #1\par}%
+  \nopagebreak\vspace{1.5pt}%
+}
+
+% Plain paragraph; optional argument sets size/shape
+\newcommand{\cvtext}[2][]{%
+  {#1\looser #2\par}%
+  \vspace{2pt}%
+}
+
+% Bullet list: bullet at 5pt, text at 15pt from the margin
+\newenvironment{cvitems}
+  {\begin{itemize}[label=•, leftmargin=15pt, labelwidth=10pt, labelsep=0pt,
+                   align=left, topsep=0pt, partopsep=0pt, parsep=0pt,
+                   itemsep=1.5pt]\looser}
+  {\end{itemize}\vspace{1.5pt}}
+
+% ---------------------------------------------------------------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+\bodysize
+\raggedright
+\hyphenpenalty=10000 % Word does not hyphenate this document
+\frenchspacing       % uniform interword spaces after punctuation, as in Word
+\clubpenalty=10000   % no single lines of a paragraph or bullet at page breaks
+\widowpenalty=10000
+\makeatletter
+\@clubpenalty=\clubpenalty % list items reset \clubpenalty to this value
+\makeatother
+
+{\centering
+  {\namesize\bfseries\color{heading}\strut MICHAEL LEHN\par}\vspace{1pt}
+  {\headsize\color{tagline}Numerical Mathematics · Scientific \& High-Performance Computing · Systems and Compilers\par}\vspace{1pt}
+  {\smallsize Ulm, Germany · Open to relocation\par}\vspace{1pt}
+  {\smallsize \href{mailto:michael.lehn@mac.com}{michael.lehn@mac.com} · +1 (213) 232-7502 (US) · +49 178 821-8422 (DE) · \href{https://github.com/michael-lehn}{github.com/michael-lehn}\par}\vspace{3pt}
+}
+
+% ===========================================================================
+\cvsection{EDUCATION}
+
+\cventry{Ph.D. (Dr. rer. nat.), Numerical Mathematics — Ulm University, Germany}{2008}
+\cvsubtitle{Dissertation: FLENS — A Flexible Library for Efficient Numerical Solutions · Advisor: Prof. Karsten Urban}
+
+\cventry{Diplom (M.S.-equivalent), Business Mathematics — Ulm University, Germany}{2002}
+
+\cventry{M.S., Applied Mathematics — University of Southern California, Los Angeles, CA}{2001}
+
+% ===========================================================================
+\cvsection{ACADEMIC APPOINTMENTS}
+
+\cventry{Ulm University — Institute of Numerical Mathematics · Ulm, Germany}{2008 – present}
+\cvsubtitle{Senior Lecturer (Akademischer Oberrat, permanent appointment), Numerical Mathematics — independent teaching, curriculum development, and scientific software development}
+
+\cventry{Ulm University — Institute of Numerical Mathematics · Ulm, Germany}{2002 – 2008}
+\cvsubtitle{Research Associate}
+
+\cventry{University of Southern California — Department of Mathematics · Los Angeles, CA}{1999 – 2001}
+\cvsubtitle{Teaching Assistant / Research Assistant}
+
+% ===========================================================================
+\cvsection{TEACHING}
+
+\cvtext[\smallsize]{Courses taught at Ulm University, ranging from required service courses to specialized graduate electives and project-based labs (lectures, exercises, projects, examinations):}
+
+\cvlabel{Mathematics for Science and Engineering}
+
+\begin{cvitems}
+  \item \textbf{Higher Mathematics 1–3} (Höhere Mathematik 1–3) — required mathematics sequence for students in Physics, Electrical Engineering, Computational Science and Engineering, and Chemical Engineering
+\end{cvitems}
+
+\cvlabel{Numerical Mathematics}
+
+\begin{cvitems}
+  \item \textbf{Numerical Linear Algebra} (undergraduate, required)
+  \item \textbf{Numerical Analysis} (undergraduate, required)
+  \item \textbf{Numerical Optimization} (graduate, elective)
+  \item \textbf{Numerical Methods for Ordinary Differential Equations} (graduate, elective)
+\end{cvitems}
+
+\cvlabel{Computing and Software Engineering}
+
+\begin{cvitems}
+  \item \textbf{HPC0 — Introduction to High Performance Computing} (undergraduate, elective) — computer architecture, systems programming, and compiler construction in a C-like language: from logic gates and a simple ALU through ISA design and assembly to a compiler with ULM-assembly and LLVM-IR backends
+  \item \textbf{HPC1 — High Performance Computing 1} (graduate; required in the M.Sc. Computational Science and Engineering, elective for Computer Science, Mathematics, Physics, Electrical Engineering, and Information and Systems Engineering) — practical course in performance engineering and parallel computing: students progressively implement and optimize their own numerical software, from a cache-optimized GEMM with integrated SIMD micro-kernels to blocked LU factorization, parallelized with C++ threads, OpenMP, MPI, and CUDA
+  \item \textbf{Application-Oriented Software Development} (Anwendungsorientierte Softwareentwicklung) (undergraduate, required for Electrical Engineering and Biomedical Engineering) — project-based lab progressing from hand-entered machine code through assembly and C to Arduino-based microcontroller programming; students build sensor-based hardware controllers and use them to control games they develop in Python
+  \item \textbf{Mathematical Software} (Mathematische Software) (undergraduate, required) — programming lab for mathematics teacher-education students (Lehramt)
+\end{cvitems}
+
+\cvlabel{Curriculum Development}
+
+\begin{cvitems}
+  \item Developed the HPC0/HPC1 teaching sequence on a first-principles basis: students first learn how programs become machine instructions, how processors execute them, and how the memory hierarchy behaves, then apply this understanding to performance engineering and parallel computing.
+  \item Adapt teaching methods to course objectives and student audiences: flipped classroom for HPC0, emphasizing independent preparation and active problem solving; project-based learning for HPC1 and Application-Oriented Software Development; and traditional lectures for foundational mathematics courses.
+  \item Publish open-access, English-language course materials: \href{https://github.com/michael-lehn/not-abc/tree/main/hpc0-sessions}{HPC0 worksheets, lecture videos, and lecturer notes} (GitHub) and \href{https://www.mathematik.uni-ulm.de/numerik/hpc/ws25/}{HPC1 session pages with exercises and sample solutions} (course website).
+  \item Developed and continuously extend original open-source teaching infrastructure: ulm-generator (ISA specification → assembler, VM, debugger, docs), ULM on an iCE40 FPGA, the ABC language and its LLVM-based compiler, the self-hosting not-abc compiler, ulmBLAS and the GEMM Tutorial, and openly licensed lab materials.
+\end{cvitems}
+
+% ===========================================================================
+\cvsection{TEACHING AWARDS}
+
+\cventry{Teaching Award, Ulm University}{2015}
+
+\cventry{Teaching Bonus, Ulm University}{2026}
+\cvtext[\smallsize\itshape]{(University-wide awards for teaching in the 2014 and 2025 academic years)}
+
+% ===========================================================================
+\cvsection{STUDENT SUPERVISION}
+
+\cvtext{Supervised approximately 45 bachelor's and master's theses since 2008 (about 30 bachelor's and 15 master's), primarily in numerical mathematics and high-performance computing.}
+
+% ===========================================================================
+\cvsection{ACADEMIC SERVICE \& STEM OUTREACH}
+
+\cventry{Academic Staff Representative, Study Commission for Mathematics Degree Programs — Ulm University}{}
+\cvsubtitle{Studienkommission Mathematische Studiengänge}
+
+\cventry{Co-Director, Ulm Location — \href{https://sfz-bw.de/ulm-sfz-schuelerforschungszentrum-suedwuerttemberg/}{Schülerforschungszentrum Südwürttemberg (SFZ)}}{2026 – present}
+\cvsubtitle{Student research center for school students; location jointly directed with Hubert Mantz}
+
+\cventry{Course Instructor — SFZ Ulm}{2024 – present}
+\cvsubtitle{Develop and regularly teach extracurricular courses in computer science, electronics, and mathematics}
+
+\cventry{Mentor — Jugend forscht (German national youth science competition)}{2008 – present}
+\cvsubtitle{Mentoring of selected student research projects}
+
+% ===========================================================================
+\cvsection{RESEARCH INTERESTS}
+
+\cvtext{Numerical linear algebra and high-performance numerical software; performance engineering (memory hierarchy, cache-aware algorithms, SIMD, multithreading, distributed and GPU computing); generic C++ library design for scientific computing; compiler construction and code generation (LLVM); ISA design and CPU architecture.}
+
+% ===========================================================================
+\cvsection{SOFTWARE (OPEN SOURCE)}
+
+\cventry{\href{https://github.com/michael-lehn/ulmBLAS}{ulmBLAS} — High-Performance BLAS Library}{C++ · Assembly}
+\begin{cvitems}
+  \item Designed and implemented a BLAS library following the layered BLIS architecture: portable blocking/packing algorithms in C++ with small, replaceable architecture-specific micro-kernels.
+  \item Reached \textasciitilde97\% of Intel MKL DGEMM performance (single core, Intel Core 2 Duo, 2014 benchmarks) with custom SSE3 assembly micro-kernels; designed a modular micro-kernel architecture in which architecture-specific implementations are selected and bound at compile time, with portable C++ reference kernels as fallback.
+  \item Implemented blocked LAPACK routines (e.g., DGETRF) on top of this backend, demonstrating the speedup of blocked over unblocked LU factorization.
+  \item Authored the widely referenced \href{https://github.com/michael-lehn/gemm-tutorial}{GEMM Tutorial} (cited in \href{https://arxiv.org/abs/1609.00076}{FLAME Working Note \#80}), documenting the full optimization path from memory hierarchy through blocking, packing, and micro-kernels.
+\end{cvitems}
+
+\cventry[7]{\href{https://github.com/michael-lehn/abc-llvm}{ABC ("A Better C")} — Systems Language \& LLVM Compiler}{C++ · LLVM}
+\begin{cvitems}
+  \item Designed a small systems language exposing C's machine model with simplified declaration syntax; built an LLVM-based compiler for it.
+  \item Implemented native C interoperability with target-specific C ABI lowering (currently x86-64 System V); external C libraries are used unmodified, demonstrated with ports of raylib example programs.
+  \item Separate project \href{https://github.com/michael-lehn/not-abc}{not-abc}: a deliberately minimal language with a self-hosting compiler written in not-abc itself, bootstrapped with a not-abc compiler written in ABC.
+\end{cvitems}
+
+\cventry[8]{\href{https://github.com/michael-lehn/FLENS}{FLENS} — Flexible Library for Efficient Numerical Solutions}{C++}
+\begin{cvitems}
+  \item Built a numerical computing framework combining MATLAB-like abstractions with direct access to optimized BLAS/LAPACK kernels; expression-template optimization eliminates operator abstraction overhead, reducing high-level numerical expressions to direct BLAS calls.
+  \item Generic architecture decouples algorithms from matrix storage, so further matrix types (e.g., distributed or GPU-resident) can be added without changing algorithm code; only experimental MPI bindings are included so far. Compile-time expression analysis also detects performance-critical temporaries.
+\end{cvitems}
+
+\cventry{\href{https://github.com/michael-lehn/ulm-generator}{ulm-generator} / \href{https://github.com/michael-lehn/ulm-on-ice}{ulm-on-iCE} — ISA Toolchain \& FPGA CPU}{C/C++ · SystemVerilog}
+\begin{cvitems}
+  \item Defined a declarative ISA description format for small RISC architectures and a generator producing assembler, virtual machine, instruction-level debugger, and documentation from one specification.
+  \item Implemented one architecture in SystemVerilog on an iCE40 FPGA — a complete path from digital logic and ISA design to assembly programs on physical hardware.
+\end{cvitems}
+
+% ===========================================================================
+\cvsection{PROFESSIONAL EXPERIENCE}
+
+\cventry{Ulm Center for Scientific Computing (UZWR), Ulm University · Ulm, Germany}{2006 – 2008}
+\cvsubtitle{Managing Director}
+\begin{cvitems}
+  \item Translated industrial partners' engineering problems into mathematical and computational models and delivered custom numerical solutions and simulations where no suitable off-the-shelf software existed.
+  \item Evaluated incoming industry projects, designed computational approaches, and either implemented solutions directly or matched projects with researchers with the appropriate expertise.
+\end{cvitems}
+
+% ===========================================================================
+\cvsection{PUBLICATIONS}
+
+\begin{cvitems}
+  \item D. Geiger, I. Schrezenmeier, M. Roos, T. Neckernuss, M. Lehn, O. Marti. Measurement of Nano Particle Adhesion by Atomic Force Microscopy Using Probability Theory Based Analysis. Journal of Physics D: Applied Physics, 2017.
+  \item M. Lehn, A. Stippler, K. Urban. FLENS — A Flexible Library for Efficient Numerical Solutions. Proceedings of EQUADIFF 11, pp. 467–473.
+  \item O. Grebe, M. Lehn, H. Neumann, F. Schwenker, J. Wöhrle, M. Höher, V. Hombach, H. A. Kestler. Parameters for Characterizing Diastolic Function with Cardiac Magnetic Resonance Imaging. Computers in Cardiology, 2002, pp. 185–188.
+\end{cvitems}
+
+% ===========================================================================
+\cvsection{TECHNICAL SKILLS}
+
+\cvtext{\textbf{Languages:} C++ (modern, templates/compile-time techniques), C, Python, Assembly (x86-64, custom RISC), LLVM IR, SystemVerilog, Java, Perl}
+
+\cvtext{\textbf{Performance \& HPC:} BLAS, LAPACK, ScaLAPACK, SIMD micro-kernels (SSE3), cache-aware/blocked algorithms, std::thread, OpenMP, MPI, CUDA, GPU and distributed-memory computing, benchmarking and profiling}
+
+\cvtext{\textbf{Compilers \& Systems:} LLVM, compiler construction, code generation, x86-64 System V ABI, C interoperability, ISA design, CPU architecture, FPGA (iCE40), bare-metal programming}
+
+\cvtext{\textbf{Tools:} Linux/Unix, Git, CMake, GNU Make, LaTeX}
+
+% ===========================================================================
+\cvsection{REFERENCES}
+
+\cvtext[\smallsize]{Academic and teaching references available upon request, including institute leadership and academic program directors in Mathematics and Electrical Engineering at Ulm University.}
+
+\end{document}
