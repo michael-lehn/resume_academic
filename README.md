@@ -8,6 +8,7 @@ university positions (e.g., Lecturer):
 - 📄 **[Evidence of Teaching Effectiveness](teaching_effectiveness_public.pdf)**
   (summary of official student evaluation results; individual student
   comments are not reproduced)
+- 📄 **[References](references.pdf)**
 
 ## Building
 

@@ -1,0 +1,90 @@
+% references.tex -- List of academic references
+% Compile with: lualatex references.tex
+%
+% Positions and contact details verified on official Ulm University web pages
+% (October 2026).
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,top=50pt,bottom=50pt,left=58pt,right=58pt]{geometry}
+\usepackage{fontspec}
+\usepackage[HTML]{xcolor}
+\usepackage{hyperref}
+
+\IfFontExistsTF{Calibri}
+  {\setmainfont{Calibri}[Ligatures={CommonOff,TeXOff}]}
+  {\setmainfont{Carlito}[Ligatures={CommonOff,TeXOff}]}
+
+\definecolor{heading}{HTML}{365F91}
+\definecolor{rule}{HTML}{444444}
+\definecolor{tagline}{HTML}{333333}
+\hypersetup{colorlinks=true, urlcolor=heading, linkcolor=heading}
+
+% Font sizes (as in cv.tex and teaching_statement.tex)
+\newcommand{\namesize}{\fontsize{16pt}{19.5pt}\selectfont}
+\newcommand{\headsize}{\fontsize{10.5pt}{12.8pt}\selectfont}
+\newcommand{\bodysize}{\fontsize{10.5pt}{13.6pt}\selectfont}
+\newcommand{\smallsize}{\fontsize{9.5pt}{11.6pt}\selectfont}
+
+% Section heading: as in cv.tex
+\newcommand{\cvsection}[1]{%
+  \par\vspace{8pt}%
+  {\headsize\bfseries\color{heading}\strut#1\par}%
+  \nopagebreak\vspace{1pt}%
+  {\color{rule}\hrule height 0.75pt}%
+  \nopagebreak\vspace{3pt}%
+  \prevdepth=2.9pt\relax
+}
+
+% One reference: name, positions, postal address, phone, email
+\newcommand{\reference}[5]{%
+  \par\vspace{14pt}%
+  {\headsize\bfseries #1\par}\vspace{2pt}%
+  #2\par\vspace{4pt}%
+  {\smallsize #3\par\vspace{2pt}%
+   Phone: #4 · Email: \href{mailto:#5}{#5}\par}%
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+\bodysize
+\raggedright
+\hyphenpenalty=10000
+\frenchspacing
+
+{\centering
+  {\namesize\bfseries\color{heading}\strut References\par}\vspace{2pt}
+  {\headsize\color{tagline}Michael Lehn, Ph.D. · Senior Lecturer, Institute of Numerical Mathematics, Ulm University\par}
+}
+
+% ===========================================================================
+\cvsection{ACADEMIC REFERENCES}
+
+\reference{Prof. Dr. Karsten Urban}
+  {Professor and Head, Institute of Numerical Mathematics\\
+   Dean of Studies, Computational Science and Engineering\\
+   Faculty of Mathematics and Economics, Ulm University}
+  {Ulm University, Institute of Numerical Mathematics, Helmholtzstraße 20, 89081 Ulm, Germany}
+  {+49 731 50-23535}
+  {karsten.urban@uni-ulm.de}
+
+\reference{Prof. Carl E. Krill III, Ph.D.}
+  {Professor and Deputy Director, Institute of Functional Nanosystems\\
+   Head, Nano- and Polycrystalline Materials Group\\
+   Faculty of Engineering, Computer Science and Psychology, Ulm University\\
+   Former Dean of Studies, Electrical Engineering and Communications and Computer Engineering}
+  {Ulm University, Institute of Functional Nanosystems, Albert-Einstein-Allee 47, 89081 Ulm, Germany}
+  {+49 731 50-25476}
+  {carl.krill@uni-ulm.de}
+
+\reference{Prof. Dr.-Ing. Christian Damm}
+  {Vice Dean and Dean of Studies, Engineering\\
+   Faculty of Engineering, Computer Science and Psychology, Ulm University\\
+   Professor and Deputy Director, Institute of Microwave Engineering}
+  {Ulm University, Institute of Microwave Engineering, Albert-Einstein-Allee 41, 89081 Ulm, Germany}
+  {+49 731 50-26360}
+  {christian.damm@uni-ulm.de}
+
+\end{document}
