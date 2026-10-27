@@ -27,3 +27,9 @@
 # Private application documents derived from confidential evaluations (never publish)
 /teaching_effectiveness.tex
 /teaching_effectiveness.pdf
+
+# Cover letters are institution-specific and kept private (never publish)
+*cover_letter*
+*cover-letter*
+*coverletter*
+/bowdoin*

@@ -35,13 +35,14 @@
   \prevdepth=2.9pt\relax
 }
 
-% One reference: name, positions, postal address, phone, email
-\newcommand{\reference}[5]{%
+% One reference: name, positions, relationship, postal address, phone, email
+\newcommand{\reference}[6]{%
   \par\vspace{14pt}%
   {\headsize\bfseries #1\par}\vspace{2pt}%
   #2\par\vspace{4pt}%
-  {\smallsize #3\par\vspace{2pt}%
-   Phone: #4 · Email: \href{mailto:#5}{#5}\par}%
+  \textit{Relationship:} #3\par\vspace{4pt}%
+  {\smallsize #4\par\vspace{2pt}%
+   Phone: #5 · Email: \href{mailto:#6}{#6}\par}%
 }
 
 \setlength{\parindent}{0pt}
@@ -66,6 +67,7 @@
   {Professor and Head, Institute of Numerical Mathematics\\
    Dean of Studies, Computational Science and Engineering\\
    Faculty of Mathematics and Economics, Ulm University}
+  {Ph.D. advisor and longtime colleague.}
   {Ulm University, Institute of Numerical Mathematics, Helmholtzstraße 20, 89081 Ulm, Germany}
   {+49 731 50-23535}
   {karsten.urban@uni-ulm.de}
@@ -75,6 +77,7 @@
    Head, Nano- and Polycrystalline Materials Group\\
    Faculty of Engineering, Computer Science and Psychology, Ulm University\\
    Former Dean of Studies, Electrical Engineering and Communications and Computer Engineering}
+  {Former Dean of Studies for engineering programs in which I teach. We have known each other professionally since 2008 through my undergraduate teaching for his faculty; our contact arose through curriculum coordination and discussions of the role of my courses in its degree programs.}
   {Ulm University, Institute of Functional Nanosystems, Albert-Einstein-Allee 47, 89081 Ulm, Germany}
   {+49 731 50-25476}
   {carl.krill@uni-ulm.de}
@@ -83,6 +86,7 @@
   {Vice Dean and Dean of Studies, Engineering\\
    Faculty of Engineering, Computer Science and Psychology, Ulm University\\
    Professor and Deputy Director, Institute of Microwave Engineering}
+  {Current Dean of Studies for engineering programs in which I teach. We know each other through my undergraduate teaching for his faculty and through curriculum coordination.}
   {Ulm University, Institute of Microwave Engineering, Albert-Einstein-Allee 41, 89081 Ulm, Germany}
   {+49 731 50-26360}
   {christian.damm@uni-ulm.de}
